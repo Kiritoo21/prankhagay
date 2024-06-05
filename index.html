@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease; 
+        }
+        .yes-button {
+            background-color: #4CAF50;
+            color: white;
+            margin-left: -100px;
+        }
+        .no-button {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Are you Gay?</h1>
+    <div class="button-container">
+        <button class="yes-button" onclick="redirectToGoodbye()">Yes</button>
+        <button class="no-button">No</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noButton = document.querySelector('.no-button');
+
+            noButton.addEventListener('mouseenter', function() {
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                const randomX = Math.random() * (viewportWidth - noButton.offsetWidth);
+                const randomY = Math.random() * (viewportHeight - noButton.offsetHeight);
+
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            });
+        });
+
+        function redirectToGoodbye() {
+            window.location.href = "goodbye.html"; // Replace with your desired URL or goodbye message
+        }
+    </script>
+</body>
+</html>
