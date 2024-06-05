@@ -53,7 +53,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const noButton = document.querySelector('.no-button');
 
-            noButton.addEventListener('mouseenter', function() {
+            function moveButtonRandomly() {
                 const viewportWidth = window.innerWidth;
                 const viewportHeight = window.innerHeight;
 
@@ -62,7 +62,10 @@
 
                 noButton.style.left = `${randomX}px`;
                 noButton.style.top = `${randomY}px`;
-            });
+            }
+
+            noButton.addEventListener('mouseenter', moveButtonRandomly);
+            noButton.addEventListener('click', moveButtonRandomly);
         });
 
         function redirectToGoodbye() {
